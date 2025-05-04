@@ -36,6 +36,7 @@ const express = require('express')
 const connectDB = require('./utils/db.js')
 const userRouter = require('./routers/user.router.js')
 const hotelRouter = require('./routers/hotel.router.js')
+const bookingRouter = require('./routers/booking.router.js')
 const logger = require('./middlewares/logger.middlewares.js')
 const upload = require('./middlewares/fileUpload.middleware.js')
 
@@ -58,7 +59,7 @@ app.get("/",logger,(req, res)=>{
  
  app.use("/users/",userRouter)
  app.use("/hotel/",hotelRouter)
- /*app.use("/review/",reviewRouter)*/
+ app.use("/booking/",bookingRouter)
  
  app.listen(PORT, function(){
      console.log(`Server started at port ${PORT}`)
